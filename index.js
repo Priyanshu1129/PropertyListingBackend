@@ -13,6 +13,10 @@ app.use(express.json());
 
 connectDB();
 
+app.use("/", (req, res, next) => {
+  res.send("API is working");
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/property", propertyRouter);
