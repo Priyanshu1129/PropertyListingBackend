@@ -1,12 +1,11 @@
 import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import { connectDB } from "../config/db.js";
 import errorHandler from "../middleware/errorHandler.js";
 import authRouter from "../routes/auth.js";
 import propertyRouter from "../routes/property.js";
 import userRouter from "../routes/user.js";
-
-dotenv.config();
 
 const app = express();
 app.use(express.json());
