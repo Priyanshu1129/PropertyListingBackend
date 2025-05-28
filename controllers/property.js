@@ -1,4 +1,5 @@
 import Property from "../models/propertyModel.js";
+import User from "../models/userModel.js";
 import redis from "../config/redisClient.js";
 import { catchAsyncError } from "../utils/catchAsyncError.js";
 import { generateNextPropertyId } from "../utils/generatePropertyId.js";
@@ -122,3 +123,38 @@ export const getPropertyList = catchAsyncError(async (req, res) => {
 
   res.json(results);
 });
+
+export const toggleFavorite = catchAsyncError(
+  async (req, res, next, session) => {
+    const propertyId = req.params.id;
+
+    if (!propertyId) {
+      const error = new Error("Property ID is required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const property = await Property.findById(propertyId).session(session);
+    if (!property) {
+      const error = new Error("Property not found");
+      error.statusCode = 404;
+      return next(error);
+    }
+
+    const user = await User.findById(req.userId).session(session);
+    const isFavorited = user.favorites.includes(propertyId);
+
+    if (isFavorited) {
+      user.favorites = user.favorites.filter(
+        (id) => id.toString() !== propertyId
+      );
+      await user.save({ session });
+      return res.json({ message: "Property removed from favorites" });
+    } else {
+      user.favorites.push(propertyId);
+      await user.save({ session });
+      return res.json({ message: "Property added to favorites" });
+    }
+  },
+  true
+);

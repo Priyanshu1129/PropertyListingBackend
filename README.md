@@ -74,7 +74,8 @@ A robust backend system for managing property listings built with **Node.js**, *
 
 | Method | Endpoint             | Description                    |
 | ------ | -------------------- | ------------------------------ |
-| POST   | `/api/favorites/:id` | Toggle favorite for a property |
+| POST   | `/api/property/toggle-favorite/:id` | Toggle favorite for a property |
+
 
 #### 🎯 Recommendation Route
 
