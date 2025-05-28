@@ -100,7 +100,7 @@ cd property-listing-backend
 npm install
 ```
 
-#### 3. Create `.env` file
+#### 3. Create your `.env` file OR use my .env file
 
 ```
 PORT=5000
