@@ -11,7 +11,7 @@ A robust backend system for managing property listings built with **Node.js**, *
 * 🔎 Advanced filtering, search and sorting
 * ❤️ Favorite/Unfavorite properties
 * 🤖 Property Recommendations through email.
-* ⚡ Redis caching for performance
+* ⚡ Redis caching for performance (using Upstash Redis on Vercel)
 * 🧰 Modular and scalable project structure
 
 ---
@@ -26,7 +26,7 @@ A robust backend system for managing property listings built with **Node.js**, *
 ├── models/           # Mongoose schemas
 ├── routes/           # Express route handlers
 ├── utils/            # CatchAsyncError:Try-cath wrapper & other helper function
-└── api/index.js          # Server entry point
+└── api/index.js      # Server entry point
 ```
 
 ---
@@ -36,7 +36,7 @@ A robust backend system for managing property listings built with **Node.js**, *
 * **Backend:** Node.js, Express
 * **Language:** Javascript
 * **Database:** MongoDB with Mongoose
-* **Caching:** Redis
+* **Caching:** Redis (Upstash for serverless Redis on Vercel)
 * **Auth:** JWT + bcrypt
 * **Other Tools:** dotenv, nodemon, ioredis
 
@@ -128,6 +128,15 @@ Content-Type: application/json
   "password": "securePassword"
 }
 ```
+
+---
+
+### 🌐 Deployment
+
+```
+🔗 Live URL: https://property-listing-backend-one.vercel.app
+```
+
 
 ---
 
