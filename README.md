@@ -152,7 +152,7 @@ Content-Type: application/json
 
 ### 📽️ Demo / Code Walkthrough
 
-> 🎥 *A video explanation is available in the `assets/` folder or shared separately.*
+> 🎥 *A video explanation is available on youtube:https://youtu.be/dYi4jG8YxAo*
 
 ---
 
